@@ -142,3 +142,147 @@
     color: var(--color-foreground);
   }
 }
+
+/* ── Romance design system ───────────────────────────── */
+:root {
+  --background: oklch(0.16 0.06 320);
+  --foreground: oklch(0.97 0.015 340);
+  --card: oklch(0.24 0.07 330 / 45%);
+  --card-foreground: oklch(0.97 0.015 340);
+  --primary: oklch(0.68 0.19 5);
+  --primary-foreground: oklch(0.99 0.01 340);
+  --secondary: oklch(0.32 0.09 320 / 60%);
+  --secondary-foreground: oklch(0.97 0.015 340);
+  --muted: oklch(0.3 0.06 320 / 55%);
+  --muted-foreground: oklch(0.84 0.05 340);
+  --accent: oklch(0.75 0.14 350);
+  --accent-foreground: oklch(0.18 0.06 320);
+  --border: oklch(0.9 0.06 340 / 22%);
+  --input: oklch(0.9 0.06 340 / 18%);
+  --ring: oklch(0.75 0.16 350);
+  --radius: 1.25rem;
+
+  --rose: oklch(0.72 0.17 12);
+  --blush: oklch(0.85 0.09 350);
+  --plum: oklch(0.55 0.18 320);
+  --crimson: oklch(0.58 0.21 20);
+  --gold: oklch(0.87 0.12 85);
+
+  --gradient-love: linear-gradient(135deg, oklch(0.68 0.19 5), oklch(0.6 0.19 330), oklch(0.55 0.18 300));
+  --gradient-page: radial-gradient(120% 90% at 10% 0%, oklch(0.28 0.11 330) 0%, transparent 55%),
+    radial-gradient(110% 80% at 90% 10%, oklch(0.26 0.12 300) 0%, transparent 55%),
+    radial-gradient(120% 100% at 50% 110%, oklch(0.3 0.13 20) 0%, transparent 60%),
+    oklch(0.13 0.05 320);
+  --shadow-love: 0 24px 70px -24px oklch(0.6 0.2 350 / 65%);
+  --glass: oklch(1 0 0 / 8%);
+}
+
+@theme inline {
+  --color-rose: var(--rose);
+  --color-blush: var(--blush);
+  --color-plum: var(--plum);
+  --color-crimson: var(--crimson);
+  --color-gold: var(--gold);
+  --font-display: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--gradient-page);
+  background-attachment: fixed;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+.font-display { font-family: var(--font-display); }
+
+.glass-card {
+  background: var(--glass);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  backdrop-filter: blur(22px) saturate(140%);
+  box-shadow: var(--shadow-love);
+}
+
+.text-love {
+  background: var(--gradient-love);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn-love {
+  background: var(--gradient-love);
+  color: var(--color-primary-foreground);
+  box-shadow: 0 14px 40px -12px oklch(0.65 0.2 350 / 80%);
+  transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s ease, filter .3s ease;
+}
+.btn-love:hover { transform: translateY(-2px) scale(1.02); filter: brightness(1.07); }
+.btn-love:active { transform: translateY(0) scale(.99); }
+
+/* Background layers */
+.romance-bg { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.romance-glow { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .5; }
+.romance-glow-a { width: 46vmax; height: 46vmax; top: -14vmax; left: -12vmax; background: oklch(0.62 0.2 350 / 45%); animation: drift 22s ease-in-out infinite; }
+.romance-glow-b { width: 40vmax; height: 40vmax; bottom: -14vmax; right: -10vmax; background: oklch(0.55 0.2 305 / 45%); animation: drift 28s ease-in-out infinite reverse; }
+.romance-glow-c { width: 34vmax; height: 34vmax; top: 40%; left: 55%; background: oklch(0.6 0.2 20 / 32%); animation: drift 34s ease-in-out infinite; }
+
+.float-emoji { position: absolute; bottom: -8vh; animation-name: floatUp; animation-timing-function: linear; animation-iteration-count: infinite; filter: drop-shadow(0 0 8px oklch(0.7 0.2 350 / 50%)); }
+.float-emoji-slow { animation-name: floatUpSpin; }
+.particle { position: absolute; bottom: -5vh; border-radius: 9999px; background: oklch(0.95 0.06 340); box-shadow: 0 0 12px oklch(0.85 0.14 340 / 90%); animation-name: floatUp; animation-timing-function: linear; animation-iteration-count: infinite; }
+
+@keyframes floatUp {
+  0% { transform: translate3d(0, 0, 0) scale(.8); }
+  100% { transform: translate3d(var(--drift, 0px), -115vh, 0) scale(1.1); }
+}
+@keyframes floatUpSpin {
+  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  100% { transform: translate3d(var(--drift, 0px), -115vh, 0) rotate(420deg); }
+}
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(4vmax, 3vmax) scale(1.12); }
+}
+
+/* Glowing heart */
+.heart-glow {
+  animation: heartbeat 2.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 22px oklch(0.68 0.22 355 / 85%)) drop-shadow(0 0 60px oklch(0.6 0.2 330 / 55%));
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.13); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.09); }
+  60% { transform: scale(1); }
+}
+
+.heart-unlock { animation: heartUnlock 1.4s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes heartUnlock {
+  0% { transform: scale(1); opacity: 1; }
+  40% { transform: scale(1.35); opacity: 1; }
+  100% { transform: scale(14); opacity: 0; }
+}
+
+.confetti-layer { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 20; }
+.confetti-bit { position: absolute; top: -12vh; border-radius: 2px; animation-name: confettiFall; animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes confettiFall {
+  0% { transform: translateY(-12vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(115vh) rotate(720deg); opacity: .9; }
+}
+
+.reveal { opacity: 0; transform: translateY(18px); animation: revealIn .9s cubic-bezier(.2,.8,.2,1) forwards; }
+@keyframes revealIn { to { opacity: 1; transform: translateY(0); } }
+
+.shake { animation: shake .45s ease-in-out; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow { animation: none !important; }
+}
