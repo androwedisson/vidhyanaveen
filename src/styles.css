@@ -175,6 +175,18 @@
     oklch(0.13 0.05 320);
   --shadow-love: 0 24px 70px -24px oklch(0.6 0.2 350 / 65%);
   --glass: oklch(1 0 0 / 8%);
+
+  /* Blue dream theme */
+  --sky: oklch(0.78 0.13 230);
+  --azure: oklch(0.6 0.18 250);
+  --blue-glow: oklch(0.82 0.11 225);
+  --navy: oklch(0.18 0.07 250);
+  --gradient-blue: linear-gradient(135deg, oklch(0.7 0.16 230), oklch(0.58 0.18 250), oklch(0.5 0.18 270));
+  --gradient-blue-page: radial-gradient(120% 90% at 10% 0%, oklch(0.3 0.12 250) 0%, transparent 55%),
+    radial-gradient(110% 80% at 90% 10%, oklch(0.28 0.13 260) 0%, transparent 55%),
+    radial-gradient(120% 100% at 50% 110%, oklch(0.32 0.12 230) 0%, transparent 60%),
+    oklch(0.13 0.06 250);
+  --shadow-blue: 0 24px 70px -24px oklch(0.55 0.2 250 / 65%);
 }
 
 @theme inline {
@@ -183,6 +195,10 @@
   --color-plum: var(--plum);
   --color-crimson: var(--crimson);
   --color-gold: var(--gold);
+  --color-sky: var(--sky);
+  --color-azure: var(--azure);
+  --color-blue-glow: var(--blue-glow);
+  --color-navy: var(--navy);
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-sans: "Karla", ui-sans-serif, system-ui, sans-serif;
 }
@@ -283,6 +299,24 @@ body {
   80% { transform: translateX(5px); }
 }
 
+/* Blue dream utilities */
+.bg-blue-dream { background: var(--gradient-blue-page); background-attachment: fixed; }
+.text-glow-blue, .quote-glow { color: var(--sky); text-shadow: 0 0 18px oklch(0.75 0.13 230 / 80%), 0 0 42px oklch(0.6 0.18 250 / 55%); }
+.quote-glow { font-family: var(--font-display); font-style: italic; }
+.heart-glow-blue { animation: heartbeat 2.2s ease-in-out infinite; color: var(--sky); filter: drop-shadow(0 0 22px oklch(0.7 0.18 230 / 90%)) drop-shadow(0 0 55px oklch(0.55 0.2 250 / 55%)); }
+.blue-glow { position: absolute; border-radius: 9999px; filter: blur(90px); opacity: .5; }
+.blue-glow-a { width: 46vmax; height: 46vmax; top: -14vmax; left: -12vmax; background: oklch(0.55 0.2 250 / 45%); animation: drift 22s ease-in-out infinite; }
+.blue-glow-b { width: 40vmax; height: 40vmax; bottom: -14vmax; right: -10vmax; background: oklch(0.5 0.2 270 / 45%); animation: drift 28s ease-in-out infinite reverse; }
+.blue-glow-c { width: 34vmax; height: 34vmax; top: 40%; left: 55%; background: oklch(0.55 0.2 230 / 32%); animation: drift 34s ease-in-out infinite; }
+.float-blue { position: absolute; bottom: -8vh; animation-name: floatUp; animation-timing-function: linear; animation-iteration-count: infinite; filter: drop-shadow(0 0 10px oklch(0.7 0.18 230 / 70%)); }
+.float-blue-slow { animation-name: floatUpSpin; }
+.btn-yes { background: var(--gradient-blue); color: var(--color-primary-foreground); box-shadow: 0 14px 40px -12px oklch(0.55 0.2 250 / 80%); transition: transform .4s cubic-bezier(.34,1.56,.64,1), box-shadow .3s ease, filter .3s ease, left .4s cubic-bezier(.34,1.56,.64,1), top .4s cubic-bezier(.34,1.56,.64,1); }
+.btn-yes:hover { transform: translateY(-2px) scale(1.05); filter: brightness(1.08); }
+.btn-yes:active { transform: translateY(0) scale(.98); }
+.btn-no { background: oklch(0.3 0.07 250 / 60%); color: var(--color-foreground); border: 1px solid var(--color-border); transition: transform .2s ease, background .2s ease; }
+.btn-no:hover { transform: scale(1.05); background: oklch(0.35 0.08 250 / 70%); }
+
 @media (prefers-reduced-motion: reduce) {
-  .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow { animation: none !important; }
+  .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow, .float-blue, .blue-glow, .heart-glow-blue { animation: none !important; }
+  .btn-yes { transition: none; }
 }
