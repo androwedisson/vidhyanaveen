@@ -315,6 +315,7 @@ body {
 .btn-yes:active { transform: translateY(0) scale(.98); }
 .btn-no { background: oklch(0.3 0.07 250 / 60%); color: var(--color-foreground); border: 1px solid var(--color-border); transition: transform .2s ease, background .2s ease; }
 .btn-no:hover { transform: scale(1.05); background: oklch(0.35 0.08 250 / 70%); }
+.glass-card-blue { box-shadow: var(--shadow-blue); }
 
 @media (prefers-reduced-motion: reduce) {
   .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow, .float-blue, .blue-glow, .heart-glow-blue { animation: none !important; }

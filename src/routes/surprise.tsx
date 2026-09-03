@@ -103,7 +103,7 @@ function SurprisePage() {
         </div>
 
         <div
-          className="glass-card reveal my-10 w-full max-w-md px-6 py-10 text-center sm:px-8 sm:py-12"
+          className="glass-card glass-card-blue reveal my-10 w-full max-w-md px-6 py-10 text-center sm:px-8 sm:py-12"
           style={{ animationDelay: "0.35s" }}
         >
           <Heart className="heart-glow-blue mx-auto h-16 w-16 fill-sky text-sky" />

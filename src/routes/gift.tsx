@@ -20,7 +20,7 @@ function GiftPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-blue-dream px-5 py-12 sm:px-8">
       <BlueBackground />
-      <section className="relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-md flex-col items-center justify-center text-center">
+      <section className="glass-card glass-card-blue relative z-10 mx-auto flex min-h-[calc(100vh-6rem)] w-full max-w-md flex-col items-center justify-center px-6 py-12 text-center sm:px-8">
         <Heart className="heart-glow-blue h-20 w-20 fill-sky text-sky" />
         <h1 className="font-display mt-6 text-3xl font-semibold leading-tight text-foreground sm:text-4xl">
           Your surprise is almost here...
