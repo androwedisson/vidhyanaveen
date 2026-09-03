@@ -14,7 +14,7 @@ export const BIRTHDAY = {
  * Password = her birthday in DDMMYYYY format.
  * Change the year below to her real birth year.
  */
-export const SECRET_PASSWORD = "01102003";
+export const SECRET_PASSWORD = "01102007";
 
 /** Optional background music file placed in /public (e.g. "/music.mp3"). */
 export const MUSIC_SRC = "";
