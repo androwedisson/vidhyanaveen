@@ -31,7 +31,7 @@ function SurprisePage() {
   const navigate = useNavigate();
   const [stage, setStage] = useState(0); // 0 = initial, 1 = moved once, 2 = ready
   const [moving, setMoving] = useState(false);
-  const [yesPos, setYesPos] = useState({ left: 50, top: 50 });
+  const [yesPos, setYesPos] = useState({ left: 72, top: 50 });
   const [noMsg, setNoMsg] = useState(false);
   const [leaving, setLeaving] = useState(false);
 
