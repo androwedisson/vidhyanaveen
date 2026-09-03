@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Heart, Lock } from "lucide-react";
 import RomanticBackground from "@/components/RomanticBackground";
@@ -23,6 +23,7 @@ export const Route = createFileRoute("/secret")({
 });
 
 function SecretPage() {
+  const navigate = useNavigate();
   const [value, setValue] = useState("");
   const [error, setError] = useState("");
   const [unlocking, setUnlocking] = useState(false);
@@ -33,8 +34,7 @@ function SecretPage() {
     if (value.trim() === SECRET_PASSWORD) {
       setError("");
       setUnlocking(true);
-      // Page 3 will be added here later:
-      // setTimeout(() => navigate({ to: "/surprise" }), 1500);
+      setTimeout(() => navigate({ to: "/surprise" }), 1600);
     } else {
       setError("Almost, my love... try again ❤️");
       setValue("");
