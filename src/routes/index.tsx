@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Heart, Music, VolumeX } from "lucide-react";
 import RomanticBackground from "@/components/RomanticBackground";
 import Confetti from "@/components/Confetti";
+import IntroScreen from "@/components/IntroScreen";
 import { getBirthdayTarget, MUSIC_SRC } from "@/lib/love-config";
 
 export const Route = createFileRoute("/")({
@@ -44,6 +45,12 @@ function CountdownPage() {
   const [time, setTime] = useState<Remaining | null>(null);
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [showIntro, setShowIntro] = useState(false);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("intro-seen") !== "1") setShowIntro(true);
+  }, []);
+
 
   useEffect(() => {
     setTime(diff(target));
@@ -79,6 +86,14 @@ function CountdownPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden px-5 py-12 sm:px-8">
+      {showIntro && (
+        <IntroScreen
+          onFinish={() => {
+            sessionStorage.setItem("intro-seen", "1");
+            setShowIntro(false);
+          }}
+        />
+      )}
       <RomanticBackground intense={finished} />
       {finished && <Confetti />}
 
