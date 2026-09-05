@@ -85,7 +85,7 @@ export function IntroScreen({ onFinish }: { onFinish: () => void }) {
           id: Date.now() + i,
           left: 12 + rnd() * 76,
           top: 10 + rnd() * 45,
-          color: FIREWORK_COLORS[Math.floor(rnd() * FIREWORK_COLORS.length)],
+          color: FIREWORK_COLORS[Math.floor(rnd() * FIREWORK_COLORS.length)] ?? "var(--sky)",
         };
         setFireworks((prev) => [...prev, fw]);
         burst(0.45 + rnd() * 0.35);
