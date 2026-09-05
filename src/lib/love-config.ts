@@ -19,6 +19,15 @@ export const SECRET_PASSWORD = "01102007";
 /** Optional background music file placed in /public (e.g. "/music.mp3"). */
 export const MUSIC_SRC = "";
 
+/**
+ * Intro screen (shown before the countdown).
+ * Put the song file in /public and set musicSrc to e.g. "/rathanimo.mp3".
+ */
+export const INTRO = {
+  name: "Vidhya",
+  musicSrc: "",
+};
+
 /** Returns the next October 1 at 00:00 local time. */
 export function getBirthdayTarget(now: Date = new Date()): Date {
   const year = now.getFullYear();
