@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Heart, Music, VolumeX } from "lucide-react";
 import RomanticBackground from "@/components/RomanticBackground";
 import Confetti from "@/components/Confetti";
+import IntroScreen from "@/components/IntroScreen";
 import { getBirthdayTarget, MUSIC_SRC } from "@/lib/love-config";
 
 export const Route = createFileRoute("/")({
