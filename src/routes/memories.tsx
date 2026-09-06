@@ -205,7 +205,7 @@ function MemoriesPage() {
                   <span>{formatTime(voiceDuration)}</span>
                 </div>
               </div>
-              <Mic className={`h-5 w-5 shrink-0 text-sky ${voicePlaying ? "animate-pulse" : "opacity-60"}`} />
+              <Mic className={`h-5 w-5 shrink-0 text-sky ${voicePlaying ? "heart-glow-blue" : "opacity-60"}`} />
             </div>
             <audio
               ref={voiceRef}
