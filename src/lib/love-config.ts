@@ -28,6 +28,19 @@ export const INTRO = {
   musicSrc: "",
 };
 
+/**
+ * PAGE 6 — "Things You Made for Me 💙"
+ * - images: URLs of the photos of things she made (public/ paths like
+ *   "/memory-1.jpg" or CDN asset URLs).
+ * - voiceNoteSrc: your voice note file (e.g. "/voice-note.m4a").
+ * - songSrc: this page's background song (e.g. "/song-page6.mp3").
+ */
+export const MEMORIES = {
+  images: [] as string[],
+  voiceNoteSrc: "",
+  songSrc: "",
+};
+
 /** Returns the next October 1 at 00:00 local time. */
 export function getBirthdayTarget(now: Date = new Date()): Date {
   const year = now.getFullYear();
