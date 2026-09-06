@@ -30,15 +30,18 @@ export const INTRO = {
 
 /**
  * PAGE 6 — "Things You Made for Me 💙"
- * - images: URLs of the photos of things she made (public/ paths like
- *   "/memory-1.jpg" or CDN asset URLs).
- * - voiceNoteSrc: your voice note file (e.g. "/voice-note.m4a").
- * - songSrc: this page's background song (e.g. "/song-page6.mp3").
+ * Photos of things she made, your voice note, and this page's song.
  */
+import memory1 from "@/assets/memory-1.jpg.asset.json";
+import memory2 from "@/assets/memory-2.jpg.asset.json";
+import memory3 from "@/assets/memory-3.jpg.asset.json";
+import voiceNote from "@/assets/voice-note.mp3.asset.json";
+import songPage6 from "@/assets/song-page6.mp3.asset.json";
+
 export const MEMORIES = {
-  images: [] as string[],
-  voiceNoteSrc: "",
-  songSrc: "",
+  images: [memory1.url, memory2.url, memory3.url],
+  voiceNoteSrc: voiceNote.url,
+  songSrc: songPage6.url,
 };
 
 /** Returns the next October 1 at 00:00 local time. */
