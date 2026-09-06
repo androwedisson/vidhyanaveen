@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Heart } from "lucide-react";
 import BlueBackground from "@/components/BlueBackground";
@@ -106,14 +106,12 @@ function ReasonsPage() {
             <p className="mt-4 text-base leading-relaxed text-foreground/90">
               Happy Birthday, Vidhya. Thank you for being the best part of my life. 💙
             </p>
-            <button
-              type="button"
-              disabled
-              className="btn-yes mt-8 rounded-full px-10 py-4 text-base font-medium opacity-70"
+            <Link
+              to="/memories"
+              className="btn-yes mt-8 inline-block rounded-full px-10 py-4 text-base font-medium"
             >
               One More Surprise 💙
-            </button>
-            <p className="mt-3 text-xs tracking-[0.15em] text-muted-foreground">Coming soon...</p>
+            </Link>
           </div>
         )}
       </section>

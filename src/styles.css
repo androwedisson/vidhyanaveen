@@ -364,6 +364,39 @@ body {
 }
 .intro-skip:hover { color: var(--sky); background: oklch(1 0 0 / 12%); }
 
+/* ── Page 6: memories ───────────────────────────────── */
+.lightbox-img { animation: lightboxZoom .4s cubic-bezier(.2,.8,.2,1); }
+@keyframes lightboxZoom {
+  0% { opacity: 0; transform: scale(.75); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.voice-progress {
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  background: oklch(1 0 0 / 12%);
+  outline: none;
+  cursor: pointer;
+}
+.voice-progress::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--gradient-blue);
+  box-shadow: 0 0 12px oklch(0.7 0.16 235 / 80%);
+  border: none;
+}
+.voice-progress::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: var(--gradient-blue);
+  box-shadow: 0 0 12px oklch(0.7 0.16 235 / 80%);
+  border: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow, .float-blue, .blue-glow, .heart-glow-blue,
   .intro-star, .intro-heart, .firework-spark { animation: none !important; }
