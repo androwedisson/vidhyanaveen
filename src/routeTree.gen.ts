@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GiftRouteImport } from './routes/gift'
+import { Route as ReasonsRouteImport } from './routes/reasons'
 import { Route as SecretRouteImport } from './routes/secret'
 import { Route as SurpriseRouteImport } from './routes/surprise'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const GiftRoute = GiftRouteImport.update({
   id: '/gift',
   path: '/gift',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReasonsRoute = ReasonsRouteImport.update({
+  id: '/reasons',
+  path: '/reasons',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SecretRoute = SecretRouteImport.update({
@@ -38,12 +44,14 @@ const SurpriseRoute = SurpriseRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gift': typeof GiftRoute
+  '/reasons': typeof ReasonsRoute
   '/secret': typeof SecretRoute
   '/surprise': typeof SurpriseRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gift': typeof GiftRoute
+  '/reasons': typeof ReasonsRoute
   '/secret': typeof SecretRoute
   '/surprise': typeof SurpriseRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/gift': typeof GiftRoute
+  '/reasons': typeof ReasonsRoute
   '/secret': typeof SecretRoute
   '/surprise': typeof SurpriseRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gift' | '/secret' | '/surprise'
+  fullPaths: '/' | '/gift' | '/reasons' | '/secret' | '/surprise'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gift' | '/secret' | '/surprise'
-  id: '__root__' | '/' | '/gift' | '/secret' | '/surprise'
+  to: '/' | '/gift' | '/reasons' | '/secret' | '/surprise'
+  id: '__root__' | '/' | '/gift' | '/reasons' | '/secret' | '/surprise'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GiftRoute: typeof GiftRoute
+  ReasonsRoute: typeof ReasonsRoute
   SecretRoute: typeof SecretRoute
   SurpriseRoute: typeof SurpriseRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/gift'
       fullPath: '/gift'
       preLoaderRoute: typeof GiftRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reasons': {
+      id: '/reasons'
+      path: '/reasons'
+      fullPath: '/reasons'
+      preLoaderRoute: typeof ReasonsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/secret': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GiftRoute: GiftRoute,
+  ReasonsRoute: ReasonsRoute,
   SecretRoute: SecretRoute,
   SurpriseRoute: SurpriseRoute,
 }
