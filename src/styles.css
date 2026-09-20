@@ -317,6 +317,58 @@ body {
 .btn-no:hover { transform: scale(1.05); background: oklch(0.35 0.08 250 / 70%); }
 .glass-card-blue { box-shadow: var(--shadow-blue); }
 
+/* ── Page 4: Vidhyashree's birthday letter ───────────── */
+.birthday-page { scroll-behavior: smooth; }
+.birthday-night-texture {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: radial-gradient(circle at center, oklch(0.9 0.08 225 / 22%) 0 1px, transparent 1.5px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(to bottom, oklch(0 0 0 / 80%), transparent 78%);
+  opacity: .45;
+}
+.birthday-opening { animation: birthdayCinematicIn 1.4s cubic-bezier(.2,.8,.2,1) both; }
+.birthday-opening-line { opacity: 0; animation: birthdayLineIn 1s .35s ease-out forwards; }
+.birthday-name-wrap { opacity: 0; animation: birthdayNameIn 1.3s 1.35s cubic-bezier(.2,.9,.2,1) forwards; }
+.birthday-title { opacity: 0; animation: birthdayLineIn 1s 2.35s ease-out forwards; }
+.birthday-sparkle { opacity: 0; animation: birthdayTwinkle 2.4s 3.1s ease-in-out infinite; }
+.birthday-name { text-wrap: balance; }
+
+.birthday-scroll-reveal { opacity: 0; transform: translateY(34px); transition: opacity 1s ease, transform 1s cubic-bezier(.2,.8,.2,1); }
+.birthday-scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+.nickname-chip { opacity: 0; transform: translateY(16px) scale(.96); }
+.is-visible .nickname-chip { animation: nicknameIn .65s ease-out forwards; }
+.is-visible .nickname-chip:nth-child(2) { animation-delay: .18s; }
+.is-visible .nickname-chip:nth-child(3) { animation-delay: .36s; }
+.deepi-reveal { opacity: 0; transform: scale(.8); }
+.is-visible .deepi-reveal { animation: deepiIn 1s .75s cubic-bezier(.2,1.2,.3,1) forwards; }
+.birthday-letter { border-color: oklch(0.78 0.13 230 / 38%); background: oklch(0.18 0.07 250 / 64%); }
+
+.birthday-petals { position: fixed; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.birthday-petals span {
+  position: absolute; top: -10vh; color: var(--rose); opacity: .28;
+  animation: birthdayPetalFall 18s linear infinite;
+}
+.birthday-petals span:nth-child(1) { left: 5%; animation-delay: -3s; }
+.birthday-petals span:nth-child(2) { left: 13%; animation-delay: -11s; animation-duration: 23s; }
+.birthday-petals span:nth-child(3) { left: 24%; animation-delay: -6s; }
+.birthday-petals span:nth-child(4) { left: 34%; animation-delay: -15s; animation-duration: 25s; }
+.birthday-petals span:nth-child(5) { left: 43%; animation-delay: -1s; }
+.birthday-petals span:nth-child(6) { left: 52%; animation-delay: -9s; animation-duration: 21s; }
+.birthday-petals span:nth-child(7) { left: 61%; animation-delay: -17s; }
+.birthday-petals span:nth-child(8) { left: 69%; animation-delay: -5s; animation-duration: 24s; }
+.birthday-petals span:nth-child(9) { left: 77%; animation-delay: -13s; }
+.birthday-petals span:nth-child(10) { left: 85%; animation-delay: -7s; animation-duration: 22s; }
+.birthday-petals span:nth-child(11) { left: 92%; animation-delay: -19s; }
+.birthday-petals span:nth-child(12) { left: 97%; animation-delay: -2s; animation-duration: 26s; }
+
+@keyframes birthdayCinematicIn { from { opacity: 0; filter: blur(12px); } to { opacity: 1; filter: blur(0); } }
+@keyframes birthdayLineIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes birthdayNameIn { from { opacity: 0; transform: scale(.88); filter: blur(8px); } to { opacity: 1; transform: scale(1); filter: blur(0); } }
+@keyframes birthdayTwinkle { 0%, 100% { opacity: .25; transform: scale(.8) rotate(0deg); } 50% { opacity: 1; transform: scale(1.2) rotate(35deg); } }
+@keyframes nicknameIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+@keyframes deepiIn { to { opacity: 1; transform: scale(1); } }
+@keyframes birthdayPetalFall { from { transform: translate3d(0,-10vh,0) rotate(0deg); } to { transform: translate3d(55px,115vh,0) rotate(540deg); } }
+
 /* ── Intro screen (fireworks night sky) ─────────────── */
 .intro-screen {
   position: fixed; inset: 0; z-index: 50; overflow: hidden;
@@ -399,6 +451,9 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .float-emoji, .particle, .confetti-bit, .romance-glow, .heart-glow, .float-blue, .blue-glow, .heart-glow-blue,
-  .intro-star, .intro-heart, .firework-spark { animation: none !important; }
+  .intro-star, .intro-heart, .firework-spark, .birthday-petals span, .birthday-opening,
+  .birthday-opening-line, .birthday-name-wrap, .birthday-title, .birthday-sparkle,
+  .nickname-chip, .deepi-reveal { animation: none !important; opacity: 1; transform: none; filter: none; }
+  .birthday-scroll-reveal { opacity: 1; transform: none; transition: none; }
   .btn-yes { transition: none; }
 }
