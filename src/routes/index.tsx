@@ -45,11 +45,7 @@ function CountdownPage() {
   const [time, setTime] = useState<Remaining | null>(null);
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const [showIntro, setShowIntro] = useState(false);
-
-  useEffect(() => {
-    if (sessionStorage.getItem("intro-seen") !== "1") setShowIntro(true);
-  }, []);
+  const [showIntro, setShowIntro] = useState(true);
 
 
   useEffect(() => {
